@@ -1,5 +1,3 @@
-import random
-import uuid
 import shortuuid
 
 
@@ -25,17 +23,18 @@ class BankAccount(User):
     def __del__(self):
         print(f'{self} deleted')
 
-    def make_deposit(self, deposit: float) -> float:
+    def make_deposit(self, deposit: float):
         self._bank_balance = self._bank_balance + deposit
+        # return self._bank_balance #zmiana
 
-    def withdraw(self, withdraw: float) -> float:
+    def withdraw(self, withdraw: float):
         if self._bank_balance >= withdraw > 0:
             self._bank_balance = self._bank_balance - withdraw
         else:
             raise Exception('no money to withdraw such sum')
 
     def show_account_balance(self):
-        print(f'account balance user: {self._name}, balance: {self.bank_balance}')
+        print(f'account balance user: {self._name}, balance: {self._bank_balance}')
 
     def delete_account(self):
         self.__del__()
@@ -51,12 +50,4 @@ b1.make_deposit(100)
 print(b1.__dict__)
 
 b1.withdraw(100)
-print(b1.__dict__)
-
-b1.show_account_balance()
-
-b1.show_account_balance()
-
-b1.delete_account()
-print("_____________________________")
 print(b1.__dict__)
