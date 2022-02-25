@@ -11,7 +11,7 @@ class User:
 
     @property
     def user(self):
-        print(f'userdata id:{self._id} name:{self._name} surname: {self._surname} passport: {self._passport_nr}')
+        print(f'user data name:{self._name} surname: {self._surname} passport: {self._passport_nr} id:{self._id}')
 
 
 class BankAccount(User):
@@ -20,8 +20,8 @@ class BankAccount(User):
         super().__init__(name, surname, passport_nr)
         self._bank_balance = bank_balance
 
-    def __del__(self):
-        print(f'{self} deleted')
+    # def __del__(self):
+    #     print(f'{self} deleted')
 
     def make_deposit(self, deposit: float):
         self._bank_balance = self._bank_balance + deposit
@@ -36,9 +36,9 @@ class BankAccount(User):
     def show_account_balance(self):
         print(f'account balance user: {self._name}, balance: {self._bank_balance}')
 
-    def delete_account(self):
-        self.__del__()
-        print(f'{self} account deleted')
+    # def delete_account(self):
+    #     self.__del__()
+    #     print(f'{self} account deleted')
 
 
 b1 = BankAccount('bart', 'd', 556)
@@ -51,3 +51,7 @@ print(b1.__dict__)
 
 b1.withdraw(100)
 print(b1.__dict__)
+
+user1 = User('test-name', 'test-surname', 1234, 'UXM3Usm86JNq4VUMybma5S')
+print("~~~~~~~~~~~~~~~~~~")
+print(user1.user)
